@@ -73,20 +73,21 @@ public class Filmarkiv implements FilmarkivADT {
     public Film[] soekProdusent(String delstreng) {
         ArrayList<Film> resultater = new ArrayList<>();
 
-        for (int i = 0; i < nesteledig; i++) { // Endret fra filmer.length til nesteledig
+        for (int i = 0; i < nesteledig; i++) { 
             if (filmer[i] != null && filmer[i].getFilmskaper().toLowerCase().contains(delstreng.toLowerCase())) {
                 resultater.add(filmer[i]);
             }
         }
         return resultater.toArray(new Film[0]);
     }
-
     @Override
-    public int antall(Sjanger sjanger) {
+    public int antall(Sjanger sjanger) { 
         int antall = 0;
-        for (int i = 0; i < nesteledig; i++) { 
-            if (filmer[i] != null && filmer[i].getSjanger().equals(sjanger)) {
-                antall++;
+        for (int i = 0; i < nesteledig; i++) {
+            if (filmer[i] != null && filmer[i].getSjanger() != null) {
+                if (filmer[i].getSjanger().name().equals(sjanger.name())) {
+                    antall++;
+                }
             }
         }
         return antall;
