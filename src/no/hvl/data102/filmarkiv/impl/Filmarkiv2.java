@@ -21,11 +21,8 @@ public class Filmarkiv2 implements FilmarkivADT	{
     		if (current.getElement().getFilmnr() == nr) {
     			return current.getElement();    		
     		}
-    		
-    		current = current.getNeste();
-    		
+    		current = current.getNeste();	
     	}
-    	
         return null;
     }
 
@@ -59,10 +56,8 @@ public class Filmarkiv2 implements FilmarkivADT	{
         		current.setNeste(current.getNeste().getNeste());
         		antall--;
         		return true;
-        		
         	}
         	current = current.getNeste();
-
         }
         return false;
     }
@@ -78,7 +73,6 @@ public class Filmarkiv2 implements FilmarkivADT	{
             }
             current = current.getNeste(); 
         }
-        
         return resultater.toArray(new Film[0]); 
     }
 
@@ -93,7 +87,6 @@ public class Filmarkiv2 implements FilmarkivADT	{
             }
             current = current.getNeste(); 
         }
-        
         return resultater.toArray(new Film[0]); 
     }
 
@@ -108,7 +101,6 @@ public class Filmarkiv2 implements FilmarkivADT	{
             }
             current = current.getNeste(); 
         }
-        
         return antall;
     }
 
