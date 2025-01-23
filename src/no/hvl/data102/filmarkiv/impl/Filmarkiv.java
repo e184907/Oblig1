@@ -1,9 +1,10 @@
-package Oblig1.src.no.hvl.data102.filmarkiv.impl;
+package no.hvl.data102.filmarkiv.impl;
 
 import java.util.ArrayList;
 
 import Oblig1.src.no.hvl.data102.filmarkiv.adt.FilmarkivADT;
 
+import no.hvl.data102.filmarkiv.adt.*;
 
 public class Filmarkiv implements FilmarkivADT{
 

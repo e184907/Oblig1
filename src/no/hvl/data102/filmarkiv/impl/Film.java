@@ -1,4 +1,4 @@
-package Oblig1.src.no.hvl.data102.filmarkiv.impl;
+package no.hvl.data102.filmarkiv.impl;
 
 import java.util.Objects;
 
@@ -87,5 +87,5 @@ public class Film {
 				&& Objects.equals(filmskaper, other.filmskaper) && sjanger == other.sjanger
 				&& Objects.equals(tittel, other.tittel);
 	}
-	haj
+	hajhferuhru
 }
