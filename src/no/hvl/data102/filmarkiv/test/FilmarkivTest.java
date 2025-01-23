@@ -15,18 +15,18 @@ class FilmarkivTest {
     
 	@BeforeEach
 	void setup() throws Exception {
-		arkiv = new Filmarkiv(5);
+		arkiv = new Filmarkiv(10);
 		
 	}
 	@Test
 	void testLeggTilOgFjernFilm() {
-		Film film1 = new Film(123, "Johnny Depp", "Pirat", 2020, Sjanger.ACTION, "Disney");
+		Film film1 = new Film(1, "Produsent1", "Tittel1", 2020, Sjanger.ACTION, "Filmselskap1");
 		arkiv.leggTilFilm(film1);
 		assertEquals(1, arkiv.antall(), "Antall filmer bør være 1 etter å ha lagt til en film.");
 		
 		//filmen ble lagt til
 		Film funnetFilm = arkiv.finnFilm(1);
-		assertNotNull(funnetFilm, "Fant ikke film med nummer1");
+		assertNotNull(funnetFilm, "Fant ikke film med nummer 1");
 		
 		//fjern film
 		boolean slettet = arkiv.slettFilm(film1.getFilmnr());
@@ -38,21 +38,21 @@ class FilmarkivTest {
 	}
 	@Test
 	void testSoekTittel() {
-		Film film1=new Film(123, "Johnny Depp", "Pirat", 2020, Sjanger.ACTION, "Disney");
-		Film film2=new Film(321, "Erik Staaloey", "Eventyret", 2024, Sjanger.DRAMA, "Pixar");
+		Film film1=new Film(1, "Produsent1", "Tittel1", 2020, Sjanger.ACTION, "Filmselskap1");
+		Film film2=new Film(2, "Produsent2", "Tittel2", 2024, Sjanger.DRAMA, "Filmselskap2");
 		arkiv.leggTilFilm(film1);
 		arkiv.leggTilFilm(film2);
 		
-		Film[] result = arkiv.soekTittel("Tittel");
+		Film[] result = arkiv.soekTittel("Produsent");
 		assertEquals(2, result.length, "skal finne to filmer som matcher delstrengen i tittelen");
 		
 
 	}
 	@Test
 	void testAntallSjanger() {
-		Film film1=new Film(123, "Johnny Depp", "Pirat", 2020, Sjanger.ACTION, "Disney");
-		Film film2=new Film(321, "Erik Staaloey", "Eventyret", 2024, Sjanger.DRAMA, "Pixar");
-		Film film3= new Film(213, "Felix Mannen", "Love", 2018, Sjanger.ACTION, "Toei");
+		Film film1=new Film(1, "Produsent1", "Tittel1", 2020, Sjanger.ACTION, "Filmselskap1");
+		Film film2=new Film(2, "Produsent2", "Tittel2", 2024, Sjanger.DRAMA, "Filmselskap2");
+		Film film3= new Film(3, "Produsent3", "Tittel3", 2018, Sjanger.ACTION, "Filmselskap3");
 		arkiv.leggTilFilm(film1);
 		arkiv.leggTilFilm(film2);
 		arkiv.leggTilFilm(film3);
