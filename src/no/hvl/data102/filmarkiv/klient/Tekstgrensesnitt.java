@@ -26,7 +26,18 @@ public class Tekstgrensesnitt {
 
 	// Skriver ut en film med alle opplysninger på skjerm (husk tekst for sjanger)
 	public void skrivUtFilm(Film film) {
-		// TODO
+		
+		int filmnr = film.getFilmnr();
+		String tittel = film.getTittel();
+		int aar = film.getAar();
+		String filmskaper = film.getFilmskaper();
+		String filmselskap = film.getFilmselskap();
+		Sjanger sjanger = film.getSjanger();
+		
+		String sj = sjanger.toString();
+		
+		JOptionPane.showMessageDialog(null, "Filmnummer: " + filmnr + "/n" + "Tittel: " + tittel + "/n" + "År: " + aar + "/n" + "Filmskaper: " + filmskaper + "/n" + "Filmselskap: " + filmselskap + "/n" + "Sjanger: " + sj);
+		
 	}
 
 	// Skriver ut alle filmer med en spesiell delstreng i tittelen
