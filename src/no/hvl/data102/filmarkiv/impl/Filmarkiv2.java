@@ -14,10 +14,13 @@ public class Filmarkiv2 implements FilmarkivADT	{
 		start = null;
 	}
     @Override
-    public Film finnFilm() {
+    public Film finnFilm(int nr) {
     	LinearNode<Film> current = start;
     	while (current != null) {
-    		current.neste();
+    		if (current.getNeste().equals(nr)) {
+    			return current;
+    		}
+    		
     		
     	}
     	
