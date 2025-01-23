@@ -15,12 +15,13 @@ public class Film {
 	}
 	//tom konstruktør
 	public Film() {
-		this.filmnr = 0;
-		this.setFilmskaper("");
-		this.setTittel("");
-		this.setAar(0);
-		this.setFilmselskap("");
-	}
+        this.filmnr = 0;
+        this.filmskaper = "";
+        this.tittel = "";
+        this.aar = 0;
+        this.sjanger = null;
+        this.filmselskap = "";
+    }
 	
 	public int getFilmnr() {
 		return filmnr;
