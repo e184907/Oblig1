@@ -87,7 +87,4 @@ public class Film {
 				&& Objects.equals(filmskaper, other.filmskaper) && sjanger == other.sjanger
 				&& Objects.equals(tittel, other.tittel);
 	}
-	hajhferuhru 
-	
-	gfkgfgfgfgffggf
 }
