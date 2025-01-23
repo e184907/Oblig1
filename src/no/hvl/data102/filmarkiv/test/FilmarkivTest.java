@@ -18,13 +18,13 @@ class FilmarkivTest {
 	void setup() throws Exception {
 		arkiv = new Filmarkiv(5);
 		
-		
+		int filmnr, String filmskaper, String tittel, int aar, Sjanger sjanger, String filmselskap
 	}
 	@Test
 	void testLeggTilOgFjernFilm() {
-		Film film1 = new Film("Produsent1" , "Tittel1", 2020, "Filmselskap1", Sjanger.ACTION);
+		Film film1 = new Film(123, "Johnny Depp", "Pirat", 2020, Sjanger.ACTION, "Disney");
 		arkiv.leggTilFilm(film1);
 		assertEquals(1, arkiv.antall(), "Antall filmer bør være 1 etter å ha lagt til en film.");
 	}
 
-}
+} 

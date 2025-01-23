@@ -19,6 +19,14 @@ public class Film {
         this.sjanger = null;
         this.filmselskap = "";
     }
+	public Film(int filmnr, String filmskaper, String tittel, int aar, Sjanger sjanger, String filmselskap) {
+        this.filmnr = filmnr;
+        this.filmskaper = filmskaper;
+        this.tittel = tittel;
+        this.aar = aar;
+        this.sjanger = sjanger;
+        this.filmselskap = filmselskap;
+    }
 	
 	public int getFilmnr() {
 		return filmnr;
