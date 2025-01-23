@@ -8,19 +8,21 @@ public class Filmarkiv2 implements FilmarkivADT	{
 	
 	private int antall;
 	private LinearNode<Film> start;
-    private int nesteledig;
 
 	public Filmarkiv2(){
 		start = null;
+		antall = 0;
 	}
+	
     @Override
     public Film finnFilm(int nr) {
     	LinearNode<Film> current = start;
     	while (current != null) {
-    		if (current.getNeste().equals(nr)) {
-    			return current;
+    		if (current.getElement().getFilmnr() == nr) {
+    			return current.getElement();    		
     		}
     		
+    		current = current.getNeste();
     		
     	}
     	
@@ -29,33 +31,38 @@ public class Filmarkiv2 implements FilmarkivADT	{
 
     @Override
     public void leggTilFilm(Film nyFilm) {
-        if (nesteledig < filmer.length) {
-            filmer[nesteledig] = nyFilm;
-            nesteledig++;
-        } else {
-            utvidKapasitet(); // Utvider tabellen dynamisk
-            filmer[nesteledig] = nyFilm;
-            nesteledig++;
-        }
-    }
-
-    private void utvidKapasitet() {
-        Film[] nyTabell = new Film[filmer.length * 2]; // Dobler kapasiteten
-        for (int i = 0; i < filmer.length; i++) {
-            nyTabell[i] = filmer[i];
-        }
-        filmer = nyTabell;
+    	LinearNode<Film> nyNode = new LinearNode<>(nyFilm);
+    	
+    	if(start == null) {
+    		start = nyNode;
+    	} else {
+    		LinearNode<Film> current = start;
+    		while (current.getNeste() != null) {
+    			current = current.getNeste();
+    		}
+    		current.setNeste(nyNode);
+    	}
+    	antall++;
     }
 
     @Override
     public boolean slettFilm(int filmnr) {
-        for (int i = 0; i < nesteledig; i++) {
-            if (filmer[i] != null && filmer[i].getFilmnr() == filmnr) { // Sjekker at filmen ikke er null
-                filmer[i] = filmer[nesteledig - 1];
-                filmer[nesteledig - 1] = null;
-                nesteledig--;
-                return true;
-            }
+        if (start == null) return false;
+        if (start.getElement().getFilmnr() == filmnr) {
+        	start = start.getNeste();
+        	antall--;
+        	return true;
+        }
+        LinearNode<Film> current = start;
+        while (current.getNeste() != null) {
+        	if(current.getNeste().getElement().getFilmnr() == filmnr) {
+        		current.setNeste(current.getNeste().getNeste());
+        		antall--;
+        		return true;
+        		
+        	}
+        	current = current.getNeste();
+
         }
         return false;
     }
