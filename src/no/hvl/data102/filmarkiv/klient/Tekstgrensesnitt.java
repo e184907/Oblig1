@@ -64,7 +64,16 @@ public class Tekstgrensesnitt {
 	// Skriver ut en enkel statistikk som inneholder antall filmer totalt
 	// og hvor mange det er i hver sjanger.
 	public void skrivUtStatistikk(FilmarkivADT arkiv) {
-		// TODO
+		int antall = arkiv.antall();
+		
+		System.out.println("Antall filmer:" + antall);
+		
+			Sjanger[] sjangTab = Sjanger.values();
+			for(int i = 0; i < sjangTab.length; i++) {
+				Sjanger sjanger = sjangTab[i];
+				int antallSjanger = arkiv.antall(sjanger);
+				System.out.println(sjanger + ": " + antallSjanger);
+			}
+		}
 	}
 	// osv ... andre metoder
-}
