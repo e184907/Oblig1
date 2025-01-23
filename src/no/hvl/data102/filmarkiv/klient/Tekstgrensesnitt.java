@@ -6,7 +6,7 @@ import no.hvl.data102.filmarkiv.impl.Film;
 import no.hvl.data102.filmarkiv.impl.*;
 
 public class Tekstgrensesnitt {
-	// Leser inn opplysninger om en film fra tastatur og returnere et Film-objekt
+	
 	public Film lesFilm() {
 		String r = JOptionPane.showInputDialog("Skriv inn film nummer");
 		String s = JOptionPane.showInputDialog("Skriv inn tittel");
@@ -15,17 +15,11 @@ public class Tekstgrensesnitt {
 		String a = JOptionPane.showInputDialog("Skriv inn filmselskap");
 		String q = JOptionPane.showInputDialog("Skriv inn sjanger, alternativer er ACTION, DRAMA, HISTORY eller DRAMA");
 		
-		Film f = new Film();
-		
 		Sjanger sjanger = Sjanger.valueOf(q.toUpperCase());
 		int filmnr = Integer.parseInt(r);
 		int aar = Integer.parseInt(h);
-		f.setFilmnr(filmnr);
-		f.setAar(aar);
-		f.setTittel(s);
-		f.setFilmskaper(b);
-		f.setFilmselskap(a);
-		f.setSjanger(sjanger);
+		
+		Film f = new Film(filmnr, b, s, aar, sjanger, a);
 		
 		return f;
 	}

@@ -82,16 +82,21 @@ public class Film {
 
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj)
+		if (this == obj) {
 			return true;
-		if (obj == null)
+		}
+		if (obj == null) {
 			return false;
-		if (getClass() != obj.getClass())
+		}
+		if (getClass() != obj.getClass()) {
 			return false;
+		}
 		Film other = (Film) obj;
 		return aar == other.aar && filmnr == other.filmnr && Objects.equals(filmselskap, other.filmselskap)
 				&& Objects.equals(filmskaper, other.filmskaper) && sjanger == other.sjanger
 				&& Objects.equals(tittel, other.tittel);
+
+		
 	}
 
 }
