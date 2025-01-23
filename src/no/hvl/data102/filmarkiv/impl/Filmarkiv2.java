@@ -2,25 +2,28 @@ package no.hvl.data102.filmarkiv.impl;
 
 import java.util.ArrayList;
 
-import no.hvl.data102.filmarkiv.adt.*;
+import no.hvl.data102.filmarkiv.adt.FilmarkivADT;
 
-public class Filmarkiv implements FilmarkivADT {
-
-    private Film[] filmer;
+public class Filmarkiv2 implements FilmarkivADT	{
+	
+	private int antall;
+	private LinearNode<Film> start;
     private int nesteledig;
 
-    public Filmarkiv(int antall) {
-        filmer = new Film[antall];
-        this.nesteledig = 0;
-    }
-
+	public Filmarkiv2(){
+		start = null;
+	}
     @Override
     public Film finnFilm(int nr) {
-        for (int i = 0; i < nesteledig; i++) { // Endret fra filmer.length til nesteledig
-            if (filmer[i] != null && filmer[i].getFilmnr() == nr) { // Sjekker om filmen ikke er null
-                return filmer[i];
-            }
-        }
+    	LinearNode<Film> current = start;
+    	while (current != null) {
+    		if (current.getNeste().equals(nr)) {
+    			return current;
+    		}
+    		
+    		
+    	}
+    	
         return null;
     }
 
@@ -73,21 +76,20 @@ public class Filmarkiv implements FilmarkivADT {
     public Film[] soekProdusent(String delstreng) {
         ArrayList<Film> resultater = new ArrayList<>();
 
-        for (int i = 0; i < nesteledig; i++) { 
+        for (int i = 0; i < nesteledig; i++) { // Endret fra filmer.length til nesteledig
             if (filmer[i] != null && filmer[i].getFilmskaper().toLowerCase().contains(delstreng.toLowerCase())) {
                 resultater.add(filmer[i]);
             }
         }
         return resultater.toArray(new Film[0]);
     }
+
     @Override
-    public int antall(Sjanger sjanger) { 
+    public int antall(Sjanger sjanger) {
         int antall = 0;
-        for (int i = 0; i < nesteledig; i++) {
-            if (filmer[i] != null && filmer[i].getSjanger() != null) {
-                if (filmer[i].getSjanger().name().equals(sjanger.name())) {
-                    antall++;
-                }
+        for (int i = 0; i < nesteledig; i++) { 
+            if (filmer[i] != null && filmer[i].getSjanger().equals(sjanger)) {
+                antall++;
             }
         }
         return antall;
@@ -98,4 +100,3 @@ public class Filmarkiv implements FilmarkivADT {
         return nesteledig;
     }
 }
-
