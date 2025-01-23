@@ -4,7 +4,6 @@ import no.hvl.data102.filmarkiv.adt.FilmarkivADT;
 import no.hvl.data102.filmarkiv.impl.Film;
 import no.hvl.data102.filmarkiv.impl.Sjanger;
 
-
 public class Meny {
 	private Tekstgrensesnitt tekstgr;
 	private FilmarkivADT filmarkiv;
@@ -15,8 +14,6 @@ public class Meny {
 	}
 
 	public void start() {
-// legg inn en del forhåndsdefinerte filmer for å teste metodene
-// ..
 		Film film1 = new Film(1, "Quentin Tarantino", "Pulp Fiction", 1994, Sjanger.ACTION, "Miramax");
 		Film film2 = new Film(2, "Christopher Nolan", "Inception", 2010, Sjanger.SCIFI, "Warner Bros");
 	    Film film3 = new Film(3, "Francis Ford Coppola", "The Godfather", 1972, Sjanger.DRAMA, "Paramount Pictures");
@@ -32,7 +29,5 @@ public class Meny {
 	    tekstgr.skrivUtFilm(film2);
 	    tekstgr.skrivUtFilm(film3);
 	    tekstgr.skrivUtFilm(film4);
-	    
-	    
 	}
 }
