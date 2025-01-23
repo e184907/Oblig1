@@ -10,9 +10,6 @@ public class Film {
 	private Sjanger sjanger;
 	private String filmselskap;
 	
-	public enum Sjanger {
-		ACTION, DRAMA, KOMEDIE, SKREKK, SCI_FI, ANIMASJON, DOKUMENTAR;
-	}
 	//tom konstruktør
 	public Film() {
         this.filmnr = 0;
