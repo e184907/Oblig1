@@ -21,8 +21,5 @@ public class LinearNode<T> {
 	public void setNeste(LinearNode<T> neste) {
 		this.neste = neste;
 	}
-	
-	
-	
 }
 

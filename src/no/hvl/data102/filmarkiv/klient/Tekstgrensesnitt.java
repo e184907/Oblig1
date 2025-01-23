@@ -31,7 +31,13 @@ public class Tekstgrensesnitt {
 
 	// Skriver ut alle filmer med en spesiell delstreng i tittelen
 	public void skrivUtFilmDelstrengITittel(FilmarkivADT arkiv, String delstreng) {
-		// TODO
+
+	    Film[] filmer = arkiv.soekTittel(delstreng);
+
+	    for (int i = 0; i < filmer.length; i++) {
+	        Film film = filmer[i]; 
+	        System.out.println("Tittel: " + film.getTittel());
+	    }
 	}
 
 	// Skriver ut alle Filmer av en produsent (produsent er delstreng)
