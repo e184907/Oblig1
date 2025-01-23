@@ -11,15 +11,16 @@ public class Filmarkiv2 implements FilmarkivADT	{
     private int nesteledig;
 
 	public Filmarkiv2(){
-		
+		start = null;
 	}
     @Override
-    public Film finnFilm(int nr) {
-        for (int i = 0; i < nesteledig; i++) { // Endret fra filmer.length til nesteledig
-            if (filmer[i] != null && filmer[i].getFilmnr() == nr) { // Sjekker om filmen ikke er null
-                return filmer[i];
-            }
-        }
+    public Film finnFilm() {
+    	LinearNode<Film> current = start;
+    	while (current != null) {
+    		current.neste();
+    		
+    	}
+    	
         return null;
     }
 
