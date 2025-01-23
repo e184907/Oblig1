@@ -70,40 +70,50 @@ public class Filmarkiv2 implements FilmarkivADT	{
     @Override
     public Film[] soekTittel(String delstreng) {
         ArrayList<Film> resultater = new ArrayList<>();
-
-        for (int i = 0; i < nesteledig; i++) { // Endret fra filmer.length til nesteledig
-            if (filmer[i] != null && filmer[i].getTittel().toLowerCase().contains(delstreng.toLowerCase())) {
-                resultater.add(filmer[i]);
+        LinearNode<Film> current = start;
+        
+        while (current != null) {
+            if (current.getElement().getTittel().toLowerCase().contains(delstreng.toLowerCase())) {
+                resultater.add(current.getElement()); 
             }
+            current = current.getNeste(); 
         }
-        return resultater.toArray(new Film[0]);
+        
+        return resultater.toArray(new Film[0]); 
     }
 
     @Override
     public Film[] soekProdusent(String delstreng) {
         ArrayList<Film> resultater = new ArrayList<>();
-
-        for (int i = 0; i < nesteledig; i++) { // Endret fra filmer.length til nesteledig
-            if (filmer[i] != null && filmer[i].getFilmskaper().toLowerCase().contains(delstreng.toLowerCase())) {
-                resultater.add(filmer[i]);
+        LinearNode<Film> current = start;
+        
+        while (current != null) {
+            if (current.getElement().getFilmskaper().toLowerCase().contains(delstreng.toLowerCase())) {
+                resultater.add(current.getElement()); 
             }
+            current = current.getNeste(); 
         }
-        return resultater.toArray(new Film[0]);
+        
+        return resultater.toArray(new Film[0]); 
     }
 
     @Override
     public int antall(Sjanger sjanger) {
         int antall = 0;
-        for (int i = 0; i < nesteledig; i++) { 
-            if (filmer[i] != null && filmer[i].getSjanger().equals(sjanger)) {
+        LinearNode<Film> current = start;
+        
+        while (current != null) {
+            if (current.getElement().getSjanger().equals(sjanger)) {
                 antall++;
             }
+            current = current.getNeste(); 
         }
+        
         return antall;
     }
 
     @Override
     public int antall() {
-        return nesteledig;
+        return antall; // Returner totalt antall filmer
     }
 }
