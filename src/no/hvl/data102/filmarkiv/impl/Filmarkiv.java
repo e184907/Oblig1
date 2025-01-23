@@ -80,14 +80,13 @@ public class Filmarkiv implements FilmarkivADT {
         }
         return resultater.toArray(new Film[0]);
     }
+
     @Override
-    public int antall(Sjanger sjanger) { 
+    public int antall(Sjanger sjanger) {
         int antall = 0;
-        for (int i = 0; i < nesteledig; i++) {
-            if (filmer[i] != null && filmer[i].getSjanger() != null) {
-                if (filmer[i].getSjanger().name().equals(sjanger.name())) {
-                    antall++;
-                }
+        for (int i = 0; i < nesteledig; i++) { 
+            if (filmer[i] != null && filmer[i].getSjanger().equals(sjanger)) {
+                antall++;
             }
         }
         return antall;

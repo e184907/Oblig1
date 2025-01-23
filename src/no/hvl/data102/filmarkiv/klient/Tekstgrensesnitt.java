@@ -1,12 +1,27 @@
 package no.hvl.data102.filmarkiv.klient;
 
+import javax.swing.JOptionPane;
 import no.hvl.data102.filmarkiv.adt.FilmarkivADT;
 import no.hvl.data102.filmarkiv.impl.Film;
 
 public class Tekstgrensesnitt {
 	// Leser inn opplysninger om en film fra tastatur og returnere et Film-objekt
 	public Film lesFilm() {
-		// TODO
+		String r = JOptionPane.showInputDialog("Skriv inn film nummer");
+		String s = JOptionPane.showInputDialog("Skriv inn tittel");
+		String h = JOptionPane.showInputDialog("Skriv inn år");
+		String b = JOptionPane.showInputDialog("Skriv inn filmskaper");
+		String a = JOptionPane.showInputDialog("Skriv inn filmselskap");
+		
+		Film f = new Film();
+		
+		int filmnr = Integer.parseInt(r);
+		int aar = Integer.parseInt(h);
+		f.setFilmnr(filmnr);
+		f.setTittel(s);
+		f.setFilmskaper(b);
+		f.setFilmselskap(a);
+		
 	}
 
 	// Skriver ut en film med alle opplysninger på skjerm (husk tekst for sjanger)
