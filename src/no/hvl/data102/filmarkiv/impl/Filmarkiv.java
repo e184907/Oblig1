@@ -1,8 +1,9 @@
-package no.hvl.data102.filmarkiv.impl;
+package Oblig1.src.no.hvl.data102.filmarkiv.impl;
 
 import java.util.ArrayList;
 
-import no.hvl.data102.filmarkiv.adt.FilmarkivADT;
+import Oblig1.src.no.hvl.data102.filmarkiv.adt.FilmarkivADT;
+
 
 public class Filmarkiv implements FilmarkivADT{
 
@@ -81,5 +82,4 @@ public class Filmarkiv implements FilmarkivADT{
 		// TODO Auto-generated method stub
 		return 0;
 	}
-	asdasdasd
 }

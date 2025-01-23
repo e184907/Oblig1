@@ -1,4 +1,4 @@
-package no.hvl.data102.filmarkiv.adt;
+package Oblig1.src.no.hvl.data102.filmarkiv.adt;
 
 import no.hvl.data102.filmarkiv.impl.Film;
 import no.hvl.data102.filmarkiv.impl.Sjanger;
