@@ -45,7 +45,7 @@ class FilmarkivTest {
 		arkiv.leggTilFilm(film1);
 		arkiv.leggTilFilm(film2);
 
-		Film[] result = arkiv.soekTittel("Produsent");
+		Film[] result = arkiv.soekTittel("Tittel");
 		assertEquals(2, result.length, "skal finne to filmer som matcher delstrengen i tittelen");
 
 	}
