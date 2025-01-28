@@ -106,6 +106,22 @@ public class Filmarkiv2 implements FilmarkivADT	{
 
     @Override
     public int antall() {
-        return antall; // Returner totalt antall filmer
+        return antall; 
     }
+
+	@Override
+	public Film[] hentAlleFilmer() {
+	    Film[] resultat = new Film[antall]; 
+	    LinearNode<Film> current = start;
+	    int indeks = 0;
+
+	    while (current != null) {
+	        resultat[indeks] = current.getElement(); 
+	        current = current.getNeste(); // Gå til neste node
+	        indeks++;
+	    }
+
+	    return resultat; // Returner arrayet med alle filmene
+	}
+
 }

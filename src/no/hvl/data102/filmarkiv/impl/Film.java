@@ -3,29 +3,31 @@ package no.hvl.data102.filmarkiv.impl;
 import java.util.Objects;
 
 public class Film {
-	private int filmnr;
-	private String filmskaper;
-	private String tittel;
-	private int aar;
-	private Sjanger sjanger;
+    private int filmnr;
+    private String filmskaper;
+    private String tittel;
+    private int aar;
+    private Sjanger sjanger;
+    private String selskap;
 	private String filmselskap;
-	
-	//tom konstruktør
-	public Film() {
-        this.filmnr = 0;
-        this.filmskaper = "";
-        this.tittel = "";
-        this.aar = 0;
-        this.sjanger = null;
-        this.filmselskap = "";
-    }
-	public Film(int filmnr, String filmskaper, String tittel, int aar, Sjanger sjanger, String filmselskap) {
+
+    // Konstruktør
+    public Film(int filmnr, String filmskaper, String tittel, int aar, Sjanger sjanger, String selskap) {
         this.filmnr = filmnr;
         this.filmskaper = filmskaper;
         this.tittel = tittel;
         this.aar = aar;
         this.sjanger = sjanger;
-        this.filmselskap = filmselskap;
+        this.selskap = selskap;
+    }
+    @Override
+    public String toString() {
+        return "Filmnr: " + filmnr +
+               "\nFilmskaper: " + filmskaper +
+               "\nTittel: " + tittel +
+               "\nÅr: " + aar +
+               "\nSjanger: " + sjanger +
+               "\nSelskap: " + selskap + "\n";
     }
 	
 	public int getFilmnr() {
@@ -68,7 +70,7 @@ public class Film {
 	}
 
 	public String getFilmselskap() {
-		return filmselskap;
+		return getFilmselskap();
 	}
 
 	public void setFilmselskap(String filmselskap) {
@@ -92,7 +94,7 @@ public class Film {
 			return false;
 		}
 		Film other = (Film) obj;
-		return aar == other.aar && filmnr == other.filmnr && Objects.equals(filmselskap, other.filmselskap)
+		return aar == other.aar && filmnr == other.filmnr && Objects.equals(getFilmselskap(), other.getFilmselskap())
 				&& Objects.equals(filmskaper, other.filmskaper) && sjanger == other.sjanger
 				&& Objects.equals(tittel, other.tittel);
 
