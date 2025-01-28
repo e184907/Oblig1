@@ -98,7 +98,6 @@ public class Filmarkiv implements FilmarkivADT {
     public int antall() {
         return nesteledig;
     }
-
 	@Override
 	public Film[] hentAlleFilmer() {
 		Film[] resultat = new Film[antall()];
