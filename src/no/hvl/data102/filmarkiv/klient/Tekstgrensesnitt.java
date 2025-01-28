@@ -8,21 +8,41 @@ import no.hvl.data102.filmarkiv.impl.*;
 public class Tekstgrensesnitt {
 	
 	public Film lesFilm() {
-		String r = JOptionPane.showInputDialog("Skriv inn film nummer");
-		String s = JOptionPane.showInputDialog("Skriv inn tittel");
-		String h = JOptionPane.showInputDialog("Skriv inn år");
-		String b = JOptionPane.showInputDialog("Skriv inn filmskaper");
-		String a = JOptionPane.showInputDialog("Skriv inn filmselskap");
-		String q = JOptionPane.showInputDialog("Skriv inn sjanger, alternativer er ACTION, DRAMA, HISTORY eller DRAMA");
-		
-		Sjanger sjanger = Sjanger.valueOf(q.toUpperCase());
-		int filmnr = Integer.parseInt(r);
-		int aar = Integer.parseInt(h);
-		
-		Film f = new Film(filmnr, b, s, aar, sjanger, a);
-		
-		return f;
+	    try {
+	        String r = JOptionPane.showInputDialog("Skriv inn film nummer");
+	        String s = JOptionPane.showInputDialog("Skriv inn tittel");
+	        String h = JOptionPane.showInputDialog("Skriv inn år");
+	        String b = JOptionPane.showInputDialog("Skriv inn filmskaper");
+	        String a = JOptionPane.showInputDialog("Skriv inn filmselskap");
+	        String q = JOptionPane.showInputDialog("Skriv inn sjanger, alternativer er ACTION, DRAMA, HISTORY");
+	        
+	        // Håndterer ugyldige sjangernavn
+	        Sjanger sjanger;
+	        try {
+	            sjanger = Sjanger.valueOf(q.toUpperCase());
+	        } catch (IllegalArgumentException e) {
+	            JOptionPane.showMessageDialog(null, "Ugyldig sjanger! Vennligst velg mellom ACTION, DRAMA, HISTORY.");
+	            return null; // Returnerer null hvis sjangeren er ugyldig
+	        }
+
+	        // Håndterer ugyldig numerisk input
+	        int filmnr = Integer.parseInt(r);
+	        int aar = Integer.parseInt(h);
+
+	        // Oppretter Film-objektet
+	        Film f = new Film(filmnr, b, s, aar, sjanger, a);
+
+	        return f;
+
+	    } catch (NumberFormatException e) {
+	        JOptionPane.showMessageDialog(null, "Vennligst skriv inn gyldige tall for filmnummer og år.");
+	    } catch (Exception e) {
+	        JOptionPane.showMessageDialog(null, "En feil oppstod. Vennligst prøv igjen.");
+	    }
+	    
+	    return null; // Returnerer null hvis noe gikk galt
 	}
+
 
 	// Skriver ut en film med alle opplysninger på skjerm (husk tekst for sjanger)
 	public void skrivUtFilm(Film film) {
